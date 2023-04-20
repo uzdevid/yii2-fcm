@@ -17,11 +17,11 @@ class Notifier extends Component {
         $this->_serverKey = $serverKey;
     }
 
-    public function notify($to, $data) {
-        $fields = [
+    public function notify($to, $data, $params = []) {
+        $fields = array_merge([
             'to' => $to,
             'notification' => $data,
-        ];
+        ], $params);
 
         $headers = [
             'Authorization: key=' . $this->_serverKey,
@@ -34,7 +34,7 @@ class Notifier extends Component {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-        $result = curl_exec($ch);
+        $result = json_decode(curl_exec($ch), true);
         curl_close($ch);
 
         if ($result === false) {

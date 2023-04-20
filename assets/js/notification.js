@@ -5,9 +5,13 @@ initializeApp(firebaseConfig);
 
 const messaging = getMessaging();
 
-getToken(messaging).then((currentToken) => {
-    if (currentToken) {
-        console.log(currentToken);
+getToken(messaging).then((token) => {
+    if (token) {
+        if (typeof saveToken() === 'function') {
+            saveToken(token);
+        } else {
+            console.log('The token is received, implement the saveToken function to receive it', token);
+        }
     } else {
         console.log('No registration token available. Request permission to generate one.');
     }
