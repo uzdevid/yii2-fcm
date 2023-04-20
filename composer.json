@@ -1,5 +1,5 @@
 {
-  "name": "uzdevid/yii2-firebase-push-notifications",
+  "name": "uzdevid/yii2-fcm",
   "description": "Firebase Push Notifications",
   "type": "yii2-extension",
   "keywords": [
