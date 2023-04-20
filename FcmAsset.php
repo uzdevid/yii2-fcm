@@ -6,10 +6,8 @@ use Yii;
 use yii\web\AssetBundle;
 use yii\web\View;
 
-class NotificationAsset extends AssetBundle {
+class FcmAsset extends AssetBundle {
     public $sourcePath = '@vendor/uzdevid/yii2-fcm/assets';
-
-    public $css = [];
 
     public $js = [
         [
@@ -17,8 +15,6 @@ class NotificationAsset extends AssetBundle {
             'type' => 'module'
         ]
     ];
-
-    public $depends = [];
 
     public function registerAssetFiles($view) {
         $script = "const firebaseConfig = " . json_encode(Yii::$app->params['fcm']) . ";";

@@ -1,7 +1,5 @@
 # Notification
 
-## Receiv notification
-
 web/firebase-messaging-sw.js
 
 ```javascript
