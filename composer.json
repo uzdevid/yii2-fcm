@@ -1,14 +1,16 @@
 {
   "name": "uzdevid/yii2-fcm",
-  "description": "Firebase Push Notifications",
+  "description": "Firebase Push Notifications for Yii2 send and receive messages",
   "type": "yii2-extension",
   "keywords": [
     "yii2",
     "extension",
-    "telegram",
-    "bot"
+    "firebase",
+    "cloud messaging",
+    "push notifications",
+    "fcm"
   ],
-  "license": "BSD-4-Clause",
+  "license": "MIT",
   "authors": [
     {
       "name": "Ibragimov Diyorbek",
@@ -20,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "uzdevid\\telegram\\": ""
+      "uzdevid\\fcm\\": ""
     }
   }
 }
