@@ -7,7 +7,7 @@ const messaging = getMessaging();
 
 getToken(messaging).then((token) => {
     if (token) {
-        if (typeof saveToken() === 'function') {
+        if (typeof saveToken === 'function') {
             saveToken(token);
         } else {
             console.log('The token is received, implement the saveToken function to receive it', token);
@@ -20,7 +20,7 @@ getToken(messaging).then((token) => {
 });
 
 onMessage(messaging, (payload) => {
-    if (typeof onNotify() === 'function') {
+    if (typeof onNotify === 'function') {
         onNotify(payload);
     } else {
         console.log('New notification received, implement the onNotify function to receive it', payload);
