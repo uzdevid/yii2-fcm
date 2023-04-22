@@ -2,9 +2,19 @@
 
 namespace uzdevid\fcm;
 
+use Exception;
 use Yii;
 use yii\base\Component;
 use yii\web\BadRequestHttpException;
+
+/**
+ * Class Notifier
+ * @package uzdevid\yii2-fcm
+ * @category Yii2 Extension
+ * @version 1.0.0
+ * @author UzDevid - Ibragimov Diyorbek
+ * @license MIT
+ */
 
 class Notifier extends Component {
     private string|null $_serverKey = null;
@@ -17,6 +27,9 @@ class Notifier extends Component {
         $this->_serverKey = $serverKey;
     }
 
+    /**
+     * @throws Exception
+     */
     public function notify($to, $data, $params = []) {
         $fields = array_merge([
             'to' => $to,

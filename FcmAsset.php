@@ -3,10 +3,17 @@
 namespace uzdevid\fcm;
 
 use Yii;
-use yii\base\InvalidConfigException;
 use yii\web\AssetBundle;
 use yii\web\View;
 
+/**
+ * Class FcmAsset
+ * @package uzdevid\yii2-fcm
+ * @category Yii2 Extension
+ * @version 1.0.0
+ * @author UzDevid - Ibragimov Diyorbek
+ * @license MIT
+ */
 class FcmAsset extends AssetBundle {
     public $sourcePath = '@vendor/uzdevid/yii2-fcm/assets';
 
@@ -18,13 +25,13 @@ class FcmAsset extends AssetBundle {
     ];
 
     public function registerAssetFiles($view) {
+        parent::registerAssetFiles($view);
+
         if (empty(Yii::$app->params['fcm'])) {
-            throw new InvalidConfigException(Yii::t('app', 'Firebase config not found'));
+            return;
         }
 
         $script = "const firebaseConfig = " . json_encode(Yii::$app->params['fcm']) . ";";
         $view->registerJs($script, View::POS_HEAD);
-
-        parent::registerAssetFiles($view);
     }
 }
