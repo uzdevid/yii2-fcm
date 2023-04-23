@@ -56,7 +56,7 @@ return [
 $token = "frYfozsx0K7e..."; // Push habar qabul qiluvchi qurilmaning tokeni
 $notification = [
     'title' => 'Salom, dunyo!',
-    'description' => 'Bu birinchi push habarim',
+    'body' => 'Bu birinchi push habarim',
     'data' => [
         // qo'shimcha ma'lumotlar
     ]
