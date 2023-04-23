@@ -7,7 +7,7 @@ Yii2 frameworki uchun [Firebase Cloud Messaging](https://firebase.google.com/doc
 Avvalam bor [firebase](https://firebase.google.com) saytidan ro'yhatdan o'tishingiz va loyiha yaratishingiz lozim.
 So'ng, yangi loyihangizning sozlamalaridan "Cloud Messaging" bo'limiga kirib, Cloud Messaging API (Legacy) ni faollashtirish kerak bo'ladi.
 
-> Faollashtirganingizdan so'ng "Server key" beriladi. Ushnu config/web.php faylida sozlashda kerak bo'ladi.
+Faollashtirganingizdan so'ng `Server key` beriladi. Ushbu `Key`ni keyinroq config/web.php fayliga yozish kerak bo'ladi.
 
 ------------------
 
@@ -73,7 +73,7 @@ Yii::app()->notifier->notify($token, $notification, $params);
 
 > **Eslatma:** Yuqorida foydalanilgan `notify()` metodida xatolik yuz bersa `Exception` va `BadRequestHttpException` istisnolarini larni qaytarishi mumkin.
 
-Shular bilan server tomonidan qilinadigan ishlashlar bajariladi.
+Shular bilan server tomonidan qilinadigan ishlar tugadi.
 
 ------------------
 
@@ -139,7 +139,7 @@ const firebaseConfig = {
 
 ### 3. Qurilma tokenini qabul qilish va serverga yuborish
 
-`<head>` tegi ichiga quyidagi funksiyani yarating va serverga yuborish uchun kodni yozing. Ushbu funksiya qurilma tokeni qabul qilinganda kengaytma tomonidan ishga tushuriladi
+`<head>` tegi ichiga quyidagi javascript funksiyani yarating va serverga yuborish uchun kodni yozing. Ushbu funksiya qurilma tokeni qabul qilinganda kengaytma tomonidan ishga tushuriladi
 
 ```javascript
 function saveToken(token) {
@@ -149,8 +149,7 @@ function saveToken(token) {
 
 ### 4. Push habarni sahifada qabul qilish
 
-`<head>` tegi ichiga quyidagi kodni yozing. Ushbu funksiya yangi push habar kelganida kengaytma tomonidan ishga tushuriladi.
-[README.md](..%2Fyii2-payme%2FREADME.md)
+`<head>` tegi ichiga quyidagi javascript kodni yozing. Ushbu funksiya yangi push habar kelganida kengaytma tomonidan ishga tushuriladi.
 `payload` - serverdan yuborilgan ma'lumotlar
 
 ```javascript
@@ -159,7 +158,7 @@ function onNotify(payload) {
 }
 ```
 
-> **Eslatma:** `onNotify()` funksiyasi foydalanuvchi veb sahifada faol bo'lgan vaqti kelgan push habarni ko'rsatish uchun kerak bo'ladi.
+ `onNotify()` funksiyasi foydalanuvchi veb sahifada faol bo'lgan vaqti kelgan push habarni ko'rsatish uchun kerak bo'ladi.
 
 ### 5. Brauzer faol bo'lmagan vaqti push habarlarni qabul qilish
 
