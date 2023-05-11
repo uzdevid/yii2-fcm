@@ -59,7 +59,7 @@ class Notifier extends Component {
         }
 
         if (!$result['success']) {
-            throw new BadRequestHttpException(Yii::t('system.message', 'FCM server error: {error}', ['error' => $result['results']['error']]));
+            throw new BadRequestHttpException(Yii::t('system.message', 'FCM server error: {error}', ['error' => json_encode($result, JSON_UNESCAPED_UNICODE)]));
         }
 
         return $result;
