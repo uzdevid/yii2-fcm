@@ -51,15 +51,15 @@ class Notifier extends Component {
         curl_close($ch);
 
         if ($result === false) {
-            throw new Exception(Yii::t('system.message', 'Curl error: {error}', ['error' => curl_error($ch)]));
+            throw new Exception(Yii::t('app', 'Curl error: {error}', ['error' => curl_error($ch)]));
         }
 
         if (empty($result)) {
-            throw new BadRequestHttpException(Yii::t('system.message', 'Empty response from FCM server'));
+            throw new BadRequestHttpException(Yii::t('app', 'Empty response from FCM server'));
         }
 
         if (!$result['success']) {
-            throw new BadRequestHttpException(Yii::t('system.message', 'FCM server error: {error}', ['error' => json_encode($result, JSON_UNESCAPED_UNICODE)]));
+            throw new BadRequestHttpException(Yii::t('app', 'FCM server error: {error}', ['error' => json_encode($result, JSON_UNESCAPED_UNICODE)]));
         }
 
         return $result;
